@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정채희 | 자기소개</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #f8f5f2;
+      color: #3a3330;
+      min-height: 100vh;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #d4a5a5 0%, #b8cce4 100%);
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+    .avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+    .hero .subtitle {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.88);
+      font-weight: 300;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 16px;
+      background: rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 5px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px 30px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #b07a7a;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #f0e8e8;
+    }
+
+    /* ── Info grid ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .info-item {
+      background: #faf7f5;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .info-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #b07a7a;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .info-value { font-size: 0.95rem; color: #3a3330; }
+
+    /* ── Tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: #fdf0f0;
+      color: #b07a7a;
+      font-size: 0.85rem;
+      padding: 5px 13px;
+      border-radius: 20px;
+      border: 1px solid #f5dada;
+    }
+    .tag.dislike {
+      background: #f0f4f8;
+      color: #6b8cae;
+      border-color: #d0dded;
+    }
+
+    /* ── SNS links ── */
+    .sns-list { display: flex; flex-direction: column; gap: 12px; }
+    .sns-item {
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none;
+      color: #3a3330;
+      background: #faf7f5;
+      border-radius: 12px;
+      padding: 12px 16px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .sns-item:hover { background: #f5eded; transform: translateX(4px); }
+    .sns-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .sns-name { font-weight: 600; font-size: 0.9rem; }
+    .sns-handle { font-size: 0.78rem; color: #999; margin-top: 1px; }
+
+    .ig   { background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7); }
+    .kt   { background: #fee500; }
+    .li   { background: #0077b5; }
+    .blog { background: #03c75a; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.78rem;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="avatar">🌸</div>
+  <h1>정채희</h1>
+  <p class="subtitle">Chaehee Jeong</p>
+  <span class="badge">경북대학교 컴퓨터학부 글로벌SW융합전공</span>
+</header>
+
+<!-- Content -->
+<main class="container">
+
+  <!-- 기본 정보 -->
+  <section class="card">
+    <h2>✦ 기본 정보</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">이름</div>
+        <div class="info-value">정채희</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">성별</div>
+        <div class="info-value">여자</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">생년월일</div>
+        <div class="info-value">2005. 04. 23</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">소속</div>
+        <div class="info-value">경북대학교 컴퓨터학부</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">MBTI</div>
+        <div class="info-value">INFP 🌿</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 취미 -->
+  <section class="card">
+    <h2>✦ 취미</h2>
+    <div class="tags">
+      <span class="tag">🎹 피아노</span>
+      <span class="tag">☕ 카페 가기</span>
+      <span class="tag">📺 유튜브 보기</span>
+      <span class="tag">🎥 브이로그 보기</span>
+      <span class="tag">📷 사진 찍기</span>
+    </div>
+  </section>
+
+  <!-- 음식 -->
+  <section class="card">
+    <h2>✦ 음식 취향</h2>
+    <p style="font-size:0.8rem;color:#aaa;margin-bottom:10px;">좋아요 💗</p>
+    <div class="tags" style="margin-bottom:16px;">
+      <span class="tag">🥖 써브웨이 참치</span>
+      <span class="tag">🥛 블렌딩 우유</span>
+      <span class="tag">🧀 치즈</span>
+      <span class="tag">☕ 커피</span>
+      <span class="tag">🍵 말차</span>
+      <span class="tag">🦞 해산물</span>
+      <span class="tag">🥩 고기</span>
+    </div>
+    <p style="font-size:0.8rem;color:#aaa;margin-bottom:10px;">싫어요 🙅</p>
+    <div class="tags">
+      <span class="tag dislike">🍟 튀김</span>
+      <span class="tag dislike">🍔 햄버거</span>
+    </div>
+  </section>
+
+  <!-- SNS -->
+  <section class="card">
+    <h2>✦ SNS</h2>
+    <div class="sns-list">
+      <a class="sns-item" href="https://www.instagram.com/j._.cogml/" target="_blank" rel="noopener">
+        <div class="sns-icon ig">📸</div>
+        <div>
+          <div class="sns-name">Instagram</div>
+          <div class="sns-handle">@j._.cogml</div>
+        </div>
+      </a>
+      <a class="sns-item" href="#" target="_blank" rel="noopener">
+        <div class="sns-icon kt">💬</div>
+        <div>
+          <div class="sns-name">카카오톡</div>
+          <div class="sns-handle">ddond</div>
+        </div>
+      </a>
+      <a class="sns-item" href="http://www.linkedin.com/in/identihee0423" target="_blank" rel="noopener">
+        <div class="sns-icon li">💼</div>
+        <div>
+          <div class="sns-name">LinkedIn</div>
+          <div class="sns-handle">identihee0423</div>
+        </div>
+      </a>
+      <a class="sns-item" href="https://blog.naver.com/chaeh_22" target="_blank" rel="noopener">
+        <div class="sns-icon blog">📝</div>
+        <div>
+          <div class="sns-name">브이로그 (네이버 블로그)</div>
+          <div class="sns-handle">chaeh_22</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Made with 💗 by 정채희 &nbsp;·&nbsp; Github Copilot으로 만드는 자기소개 페이지
+</footer>
+
+</body>
+</html>
