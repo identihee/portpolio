@@ -3,268 +3,509 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>정채희 | 자기소개</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <title>정채희 | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --accent: #c9a0a0;
+      --accent-dark: #a07070;
+      --bg: #f9f7f5;
+      --white: #ffffff;
+      --text: #2b2523;
+      --muted: #9a8f8b;
+      --border: #ede8e5;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: #f8f5f2;
-      color: #3a3330;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
     }
 
-    /* ── Hero ── */
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px;
+      background: rgba(249,247,245,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: var(--text); letter-spacing: -0.3px;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 0.85rem; color: var(--muted);
+      text-decoration: none; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, #d4a5a5 0%, #b8cce4 100%);
-      padding: 72px 24px 56px;
-      text-align: center;
-    }
-    .avatar {
-      width: 110px; height: 110px;
-      border-radius: 50%;
-      background: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 52px;
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-    }
-    .hero h1 { font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
-    .hero .subtitle {
-      margin-top: 8px;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.88);
-      font-weight: 300;
-    }
-    .badge {
-      display: inline-block;
-      margin-top: 16px;
-      background: rgba(255,255,255,0.3);
-      color: #fff;
-      font-size: 0.82rem;
-      padding: 5px 16px;
-      border-radius: 20px;
-      backdrop-filter: blur(6px);
-    }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 40px 20px 60px;
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    /* ── Card ── */
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 28px 30px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .card h2 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #b07a7a;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .card h2::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #f0e8e8;
-    }
-
-    /* ── Info grid ── */
-    .info-grid {
+      min-height: 100vh;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px 60px;
+      gap: 60px;
+    }
+    .hero-text {}
+    .hero-eyebrow {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent-dark);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-text h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+    .hero-text h1 span { color: var(--accent-dark); }
+    .hero-desc {
+      margin-top: 20px;
+      font-size: 1rem; font-weight: 300;
+      color: var(--muted); line-height: 1.7;
+    }
+    .hero-meta {
+      margin-top: 28px;
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .meta-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 0.82rem; color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .meta-chip:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px rgba(201,160,160,0.2);
+    }
+    .hero-cta {
+      margin-top: 36px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 11px 26px;
+      border-radius: 999px;
+      font-size: 0.88rem; font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--text); color: var(--white);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(43,37,35,0.25);
+    }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* ── PHOTO ── */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .photo-bg {
+      width: 360px; height: 420px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #e8d5d5 0%, #d5e0ed 100%);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .photo-bg:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.16);
+    }
+    .photo-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+    }
+    .photo-tag {
+      position: absolute; bottom: -14px; right: -14px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 12px 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      font-size: 0.82rem;
+    }
+    .photo-tag strong { display: block; font-weight: 700; font-size: 0.95rem; }
+    .photo-tag span { color: var(--muted); font-size: 0.75rem; }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700;
+      color: var(--accent-dark); letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+    .divider {
+      width: 100%; height: 1px;
+      background: var(--border);
+      margin: 0 auto;
+    }
+
+    /* ── ABOUT GRID ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      border-color: var(--accent);
+    }
+    .about-card .label {
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--accent-dark); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .about-card .value {
+      font-size: 0.95rem; font-weight: 500; color: var(--text);
+    }
+
+    /* ── HOBBY GRID ── */
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 14px;
     }
-    .info-item {
-      background: #faf7f5;
-      border-radius: 12px;
-      padding: 14px 16px;
+    .hobby-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
-    .info-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #b07a7a;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
+    .hobby-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      border-color: var(--accent);
     }
-    .info-value { font-size: 0.95rem; color: #3a3330; }
+    .hobby-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .hobby-card .name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
 
-    /* ── Tags ── */
+    /* ── FOOD ── */
+    .food-section { display: flex; flex-direction: column; gap: 24px; }
+    .food-group-label {
+      font-size: 0.8rem; font-weight: 600; color: var(--muted);
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .food-group-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem; font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 999px;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      cursor: default;
+    }
+    .tag:hover {
       background: #fdf0f0;
-      color: #b07a7a;
-      font-size: 0.85rem;
-      padding: 5px 13px;
-      border-radius: 20px;
-      border: 1px solid #f5dada;
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
-    .tag.dislike {
-      background: #f0f4f8;
-      color: #6b8cae;
-      border-color: #d0dded;
+    .tag.dislike:hover {
+      background: #f0f4f9;
+      border-color: #7fa3c7;
     }
 
-    /* ── SNS links ── */
-    .sns-list { display: flex; flex-direction: column; gap: 12px; }
-    .sns-item {
+    /* ── SNS ── */
+    .sns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .sns-card {
       display: flex; align-items: center; gap: 14px;
-      text-decoration: none;
-      color: #3a3330;
-      background: #faf7f5;
-      border-radius: 12px;
-      padding: 12px 16px;
-      transition: background 0.2s, transform 0.15s;
+      text-decoration: none; color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
-    .sns-item:hover { background: #f5eded; transform: translateX(4px); }
+    .sns-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+      border-color: var(--accent);
+    }
     .sns-icon {
-      width: 36px; height: 36px;
-      border-radius: 10px;
+      width: 42px; height: 42px;
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
+      font-size: 20px; flex-shrink: 0;
     }
-    .sns-name { font-weight: 600; font-size: 0.9rem; }
-    .sns-handle { font-size: 0.78rem; color: #999; margin-top: 1px; }
-
+    .sns-name { font-weight: 700; font-size: 0.92rem; }
+    .sns-handle { font-size: 0.77rem; color: var(--muted); margin-top: 2px; }
     .ig   { background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7); }
     .kt   { background: #fee500; }
     .li   { background: #0077b5; }
     .blog { background: #03c75a; }
 
-    /* ── Footer ── */
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 32px 20px;
       font-size: 0.78rem;
-      color: #bbb;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 90px 24px 50px;
+        gap: 40px;
+        text-align: center;
+        min-height: auto;
+      }
+      .hero-photo-wrap { order: -1; }
+      .photo-bg { width: 240px; height: 280px; }
+      .photo-tag { bottom: -10px; right: -10px; }
+      .hero-meta { justify-content: center; }
+      .hero-cta { justify-content: center; }
+      .section { padding: 56px 24px; }
+      .about-grid { grid-template-columns: repeat(2, 1fr); }
+      .hobby-grid { grid-template-columns: repeat(3, 1fr); }
+      .sns-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .photo-bg { width: 200px; height: 240px; }
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .hobby-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- Hero -->
-<header class="hero">
-  <div class="avatar">🌸</div>
-  <h1>정채희</h1>
-  <p class="subtitle">Chaehee Jeong</p>
-  <span class="badge">경북대학교 컴퓨터학부 글로벌SW융합전공</span>
-</header>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">CJ ✦</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#hobbies">취미</a>
+    <a href="#food">음식</a>
+    <a href="#contact">연락처</a>
+  </div>
+</nav>
 
-<!-- Content -->
-<main class="container">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Hello, I'm</p>
+    <h1>정채희<br><span>Chaehee Jeong</span></h1>
+    <p class="hero-desc">경북대학교 컴퓨터학부에서 공부하고 있는<br>INFP 감성의 개발자입니다 🌿</p>
+    <div class="hero-meta">
+      <span class="meta-chip">🎂 2005.04.23</span>
+      <span class="meta-chip">🏫 경북대학교</span>
+      <span class="meta-chip">💻 컴퓨터학부</span>
+      <span class="meta-chip">🌿 INFP</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">연락하기</a>
+      <a href="#about" class="btn btn-outline">더 알아보기</a>
+    </div>
+  </div>
 
-  <!-- 기본 정보 -->
-  <section class="card">
-    <h2>✦ 기본 정보</h2>
-    <div class="info-grid">
-      <div class="info-item">
-        <div class="info-label">이름</div>
-        <div class="info-value">정채희</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">성별</div>
-        <div class="info-value">여자</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">생년월일</div>
-        <div class="info-value">2005. 04. 23</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">소속</div>
-        <div class="info-value">경북대학교 컴퓨터학부</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">MBTI</div>
-        <div class="info-value">INFP 🌿</div>
+  <div class="hero-photo-wrap">
+    <div class="photo-bg">
+      <img src="IMG_7964.JPG" alt="정채희 프로필 사진" />
+    </div>
+    <div class="photo-tag">
+      <strong>정채희</strong>
+      <span>Chaehee Jeong</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <p class="section-label">Profile</p>
+  <h2 class="section-title">기본 정보</h2>
+  <div class="about-grid">
+    <div class="about-card">
+      <div class="label">이름</div>
+      <div class="value">정채희</div>
+    </div>
+    <div class="about-card">
+      <div class="label">성별</div>
+      <div class="value">여자</div>
+    </div>
+    <div class="about-card">
+      <div class="label">생년월일</div>
+      <div class="value">2005. 04. 23</div>
+    </div>
+    <div class="about-card">
+      <div class="label">소속</div>
+      <div class="value">경북대학교 컴퓨터학부</div>
+    </div>
+    <div class="about-card">
+      <div class="label">MBTI</div>
+      <div class="value">INFP 🌿</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOBBIES -->
+<section class="section" id="hobbies">
+  <p class="section-label">Interests</p>
+  <h2 class="section-title">취미</h2>
+  <div class="hobby-grid">
+    <div class="hobby-card">
+      <div class="icon">🎹</div>
+      <div class="name">피아노</div>
+    </div>
+    <div class="hobby-card">
+      <div class="icon">☕</div>
+      <div class="name">카페 가기</div>
+    </div>
+    <div class="hobby-card">
+      <div class="icon">📺</div>
+      <div class="name">유튜브 보기</div>
+    </div>
+    <div class="hobby-card">
+      <div class="icon">🎥</div>
+      <div class="name">브이로그 보기</div>
+    </div>
+    <div class="hobby-card">
+      <div class="icon">📷</div>
+      <div class="name">사진 찍기</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOD -->
+<section class="section" id="food">
+  <p class="section-label">Taste</p>
+  <h2 class="section-title">음식 취향</h2>
+  <div class="food-section">
+    <div>
+      <p class="food-group-label">💗 좋아요</p>
+      <div class="tags">
+        <span class="tag">🥖 써브웨이 참치</span>
+        <span class="tag">🥛 블렌딩 우유</span>
+        <span class="tag">🧀 치즈</span>
+        <span class="tag">☕ 커피</span>
+        <span class="tag">🍵 말차</span>
+        <span class="tag">🦞 해산물</span>
+        <span class="tag">🥩 고기</span>
       </div>
     </div>
-  </section>
-
-  <!-- 취미 -->
-  <section class="card">
-    <h2>✦ 취미</h2>
-    <div class="tags">
-      <span class="tag">🎹 피아노</span>
-      <span class="tag">☕ 카페 가기</span>
-      <span class="tag">📺 유튜브 보기</span>
-      <span class="tag">🎥 브이로그 보기</span>
-      <span class="tag">📷 사진 찍기</span>
+    <div>
+      <p class="food-group-label">🙅 싫어요</p>
+      <div class="tags">
+        <span class="tag dislike">🍟 튀김</span>
+        <span class="tag dislike">🍔 햄버거</span>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 음식 -->
-  <section class="card">
-    <h2>✦ 음식 취향</h2>
-    <p style="font-size:0.8rem;color:#aaa;margin-bottom:10px;">좋아요 💗</p>
-    <div class="tags" style="margin-bottom:16px;">
-      <span class="tag">🥖 써브웨이 참치</span>
-      <span class="tag">🥛 블렌딩 우유</span>
-      <span class="tag">🧀 치즈</span>
-      <span class="tag">☕ 커피</span>
-      <span class="tag">🍵 말차</span>
-      <span class="tag">🦞 해산물</span>
-      <span class="tag">🥩 고기</span>
-    </div>
-    <p style="font-size:0.8rem;color:#aaa;margin-bottom:10px;">싫어요 🙅</p>
-    <div class="tags">
-      <span class="tag dislike">🍟 튀김</span>
-      <span class="tag dislike">🍔 햄버거</span>
-    </div>
-  </section>
+<div class="divider"></div>
 
-  <!-- SNS -->
-  <section class="card">
-    <h2>✦ SNS</h2>
-    <div class="sns-list">
-      <a class="sns-item" href="https://www.instagram.com/j._.cogml/" target="_blank" rel="noopener">
-        <div class="sns-icon ig">📸</div>
-        <div>
-          <div class="sns-name">Instagram</div>
-          <div class="sns-handle">@j._.cogml</div>
-        </div>
-      </a>
-      <a class="sns-item" href="#" target="_blank" rel="noopener">
-        <div class="sns-icon kt">💬</div>
-        <div>
-          <div class="sns-name">카카오톡</div>
-          <div class="sns-handle">ddond</div>
-        </div>
-      </a>
-      <a class="sns-item" href="http://www.linkedin.com/in/identihee0423" target="_blank" rel="noopener">
-        <div class="sns-icon li">💼</div>
-        <div>
-          <div class="sns-name">LinkedIn</div>
-          <div class="sns-handle">identihee0423</div>
-        </div>
-      </a>
-      <a class="sns-item" href="https://blog.naver.com/chaeh_22" target="_blank" rel="noopener">
-        <div class="sns-icon blog">📝</div>
-        <div>
-          <div class="sns-name">브이로그 (네이버 블로그)</div>
-          <div class="sns-handle">chaeh_22</div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-</main>
+<!-- CONTACT / SNS -->
+<section class="section" id="contact">
+  <p class="section-label">Contact</p>
+  <h2 class="section-title">SNS</h2>
+  <div class="sns-grid">
+    <a class="sns-card" href="https://www.instagram.com/j._.cogml/" target="_blank" rel="noopener">
+      <div class="sns-icon ig">📸</div>
+      <div>
+        <div class="sns-name">Instagram</div>
+        <div class="sns-handle">@j._.cogml</div>
+      </div>
+    </a>
+    <a class="sns-card" href="#" target="_blank" rel="noopener">
+      <div class="sns-icon kt">💬</div>
+      <div>
+        <div class="sns-name">카카오톡</div>
+        <div class="sns-handle">ddond</div>
+      </div>
+    </a>
+    <a class="sns-card" href="http://www.linkedin.com/in/identihee0423" target="_blank" rel="noopener">
+      <div class="sns-icon li">💼</div>
+      <div>
+        <div class="sns-name">LinkedIn</div>
+        <div class="sns-handle">identihee0423</div>
+      </div>
+    </a>
+    <a class="sns-card" href="https://blog.naver.com/chaeh_22" target="_blank" rel="noopener">
+      <div class="sns-icon blog">📝</div>
+      <div>
+        <div class="sns-name">브이로그</div>
+        <div class="sns-handle">chaeh_22 (네이버 블로그)</div>
+      </div>
+    </a>
+  </div>
+</section>
 
 <footer>
-  Made with 💗 by 정채희 &nbsp;·&nbsp; Github Copilot으로 만드는 자기소개 페이지
+  © 2025 정채희 &nbsp;·&nbsp; Made with 💗 &nbsp;·&nbsp; Github Copilot으로 만드는 자기소개 페이지
 </footer>
 
 </body>
