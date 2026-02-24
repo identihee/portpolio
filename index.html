@@ -32,7 +32,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 18px 40px;
-      background: rgba(249,247,245,0.85);
+      background: rgba(249,247,245,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -41,9 +41,9 @@
       font-weight: 700; font-size: 1.1rem;
       color: var(--text); letter-spacing: -0.3px;
     }
-    .nav-links { display: flex; gap: 28px; }
+    .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
     .nav-links a {
-      font-size: 0.85rem; color: var(--muted);
+      font-size: 0.82rem; color: var(--muted);
       text-decoration: none; font-weight: 500;
       transition: color 0.2s;
     }
@@ -60,7 +60,6 @@
       padding: 100px 40px 60px;
       gap: 60px;
     }
-    .hero-text {}
     .hero-eyebrow {
       font-size: 0.78rem; font-weight: 600;
       color: var(--accent-dark);
@@ -107,12 +106,10 @@
       border-radius: 999px;
       font-size: 0.88rem; font-weight: 600;
       text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+      transition: transform 0.15s, box-shadow 0.2s;
       cursor: pointer;
     }
-    .btn-primary {
-      background: var(--text); color: var(--white);
-    }
+    .btn-primary { background: var(--text); color: var(--white); }
     .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(43,37,35,0.25);
@@ -121,10 +118,7 @@
       background: transparent; color: var(--text);
       border: 1.5px solid var(--border);
     }
-    .btn-outline:hover {
-      border-color: var(--text);
-      transform: translateY(-2px);
-    }
+    .btn-outline:hover { border-color: var(--text); transform: translateY(-2px); }
 
     /* ── PHOTO ── */
     .hero-photo-wrap {
@@ -134,8 +128,6 @@
     .photo-bg {
       width: 360px; height: 420px;
       border-radius: 24px;
-      background: linear-gradient(135deg, #e8d5d5 0%, #d5e0ed 100%);
-      position: relative;
       overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.12);
       transition: transform 0.3s, box-shadow 0.3s;
@@ -155,72 +147,67 @@
       border-radius: 16px;
       padding: 12px 18px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      font-size: 0.82rem;
     }
     .photo-tag strong { display: block; font-weight: 700; font-size: 0.95rem; }
     .photo-tag span { color: var(--muted); font-size: 0.75rem; }
+
+    /* ── DIVIDER ── */
+    .divider { width: 100%; height: 1px; background: var(--border); }
 
     /* ── SECTIONS ── */
     .section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 80px 40px;
+      padding: 72px 40px;
     }
     .section-label {
-      font-size: 0.75rem; font-weight: 700;
-      color: var(--accent-dark); letter-spacing: 0.15em;
-      text-transform: uppercase; margin-bottom: 12px;
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--accent-dark); letter-spacing: 0.16em;
+      text-transform: uppercase; margin-bottom: 10px;
     }
     .section-title {
       font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-size: clamp(1.5rem, 3vw, 2rem);
       font-weight: 700; letter-spacing: -0.5px;
-      margin-bottom: 40px;
-    }
-    .divider {
-      width: 100%; height: 1px;
-      background: var(--border);
-      margin: 0 auto;
+      margin-bottom: 32px;
     }
 
-    /* ── ABOUT GRID ── */
-    .about-grid {
+    /* ── CARDS (공통) ── */
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
-    .about-card {
+    .info-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
-    .about-card:hover {
+    .info-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.07);
       border-color: var(--accent);
     }
-    .about-card .label {
-      font-size: 0.7rem; font-weight: 700;
+    .info-card .label {
+      font-size: 0.68rem; font-weight: 700;
       color: var(--accent-dark); letter-spacing: 0.1em;
       text-transform: uppercase; margin-bottom: 6px;
     }
-    .about-card .value {
-      font-size: 0.95rem; font-weight: 500; color: var(--text);
-    }
+    .info-card .value { font-size: 0.92rem; font-weight: 500; color: var(--text); }
 
-    /* ── HOBBY GRID ── */
+    /* ── HOBBY ── */
     .hobby-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 14px;
     }
     .hobby-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px 16px;
+      padding: 24px 12px;
       text-align: center;
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
@@ -230,44 +217,83 @@
       border-color: var(--accent);
     }
     .hobby-card .icon { font-size: 2rem; margin-bottom: 10px; }
-    .hobby-card .name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .hobby-card .name { font-size: 0.85rem; font-weight: 600; }
 
-    /* ── FOOD ── */
-    .food-section { display: flex; flex-direction: column; gap: 24px; }
+    /* ── TAGS ── */
+    .food-col { display: flex; flex-direction: column; gap: 20px; }
     .food-group-label {
-      font-size: 0.8rem; font-weight: 600; color: var(--muted);
-      margin-bottom: 12px;
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      margin-bottom: 10px;
       display: flex; align-items: center; gap: 8px;
     }
-    .food-group-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
-    }
+    .food-group-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag {
       background: var(--white);
       border: 1px solid var(--border);
       color: var(--text);
-      font-size: 0.85rem; font-weight: 500;
-      padding: 6px 16px;
+      font-size: 0.83rem; font-weight: 500;
+      padding: 5px 15px;
       border-radius: 999px;
       transition: background 0.2s, border-color 0.2s, transform 0.15s;
       cursor: default;
     }
-    .tag:hover {
-      background: #fdf0f0;
+    .tag:hover { background: #fdf0f0; border-color: var(--accent); transform: translateY(-2px); }
+    .tag.dislike:hover { background: #f0f4f9; border-color: #7fa3c7; }
+
+    /* ── LIST CARDS (자격증, 봉사, 수상, 동아리) ── */
+    .list-stack { display: flex; flex-direction: column; gap: 12px; }
+    .list-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex; align-items: flex-start; gap: 14px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .list-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
       border-color: var(--accent);
-      transform: translateY(-2px);
     }
-    .tag.dislike:hover {
-      background: #f0f4f9;
-      border-color: #7fa3c7;
+    .list-card .lc-icon {
+      font-size: 1.5rem; flex-shrink: 0; line-height: 1;
     }
+    .list-card .lc-body {}
+    .list-card .lc-title { font-weight: 600; font-size: 0.95rem; }
+    .list-card .lc-sub { font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .contact-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 22px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .contact-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      border-color: var(--accent);
+    }
+    .contact-item .label {
+      font-size: 0.68rem; font-weight: 700;
+      color: var(--accent-dark); letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .contact-item .value { font-size: 0.92rem; font-weight: 500; }
 
     /* ── SNS ── */
     .sns-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
     }
     .sns-card {
       display: flex; align-items: center; gap: 14px;
@@ -275,7 +301,7 @@
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
     .sns-card:hover {
@@ -284,17 +310,18 @@
       border-color: var(--accent);
     }
     .sns-icon {
-      width: 42px; height: 42px;
+      width: 40px; height: 40px;
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px; flex-shrink: 0;
+      font-size: 18px; flex-shrink: 0;
     }
-    .sns-name { font-weight: 700; font-size: 0.92rem; }
-    .sns-handle { font-size: 0.77rem; color: var(--muted); margin-top: 2px; }
+    .sns-name { font-weight: 700; font-size: 0.9rem; }
+    .sns-handle { font-size: 0.76rem; color: var(--muted); margin-top: 2px; }
     .ig   { background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7); }
     .kt   { background: #fee500; }
     .li   { background: #0077b5; }
     .blog { background: #03c75a; }
+    .gh   { background: #24292e; }
 
     /* ── FOOTER ── */
     footer {
@@ -307,8 +334,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      .nav-links { gap: 16px; }
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 14px; }
       .hero {
         grid-template-columns: 1fr;
         padding: 90px 24px 50px;
@@ -321,15 +348,15 @@
       .photo-tag { bottom: -10px; right: -10px; }
       .hero-meta { justify-content: center; }
       .hero-cta { justify-content: center; }
-      .section { padding: 56px 24px; }
-      .about-grid { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 52px 24px; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
       .hobby-grid { grid-template-columns: repeat(3, 1fr); }
       .sns-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 480px) {
       .photo-bg { width: 200px; height: 240px; }
-      .about-grid { grid-template-columns: 1fr 1fr; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
       .hobby-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
     }
@@ -344,6 +371,7 @@
     <a href="#about">About</a>
     <a href="#hobbies">취미</a>
     <a href="#food">음식</a>
+    <a href="#activities">활동</a>
     <a href="#contact">연락처</a>
   </div>
 </nav>
@@ -353,19 +381,18 @@
   <div class="hero-text">
     <p class="hero-eyebrow">Hello, I'm</p>
     <h1>정채희<br><span>Chaehee Jeong</span></h1>
-    <p class="hero-desc">경북대학교 컴퓨터학부에서 공부하고 있는<br>INFP 감성의 개발자입니다 🌿</p>
+    <p class="hero-desc">경북대학교 컴퓨터학부 글로벌SW융합전공에서<br>공부하고 있는 ENFJ 개발자입니다 🌿</p>
     <div class="hero-meta">
       <span class="meta-chip">🎂 2005.04.23</span>
       <span class="meta-chip">🏫 경북대학교</span>
       <span class="meta-chip">💻 컴퓨터학부</span>
-      <span class="meta-chip">🌿 INFP</span>
+      <span class="meta-chip">🌿 ENFJ</span>
     </div>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">연락하기</a>
       <a href="#about" class="btn btn-outline">더 알아보기</a>
     </div>
   </div>
-
   <div class="hero-photo-wrap">
     <div class="photo-bg">
       <img src="IMG_7964.JPG" alt="정채희 프로필 사진" />
@@ -383,27 +410,13 @@
 <section class="section" id="about">
   <p class="section-label">Profile</p>
   <h2 class="section-title">기본 정보</h2>
-  <div class="about-grid">
-    <div class="about-card">
-      <div class="label">이름</div>
-      <div class="value">정채희</div>
-    </div>
-    <div class="about-card">
-      <div class="label">성별</div>
-      <div class="value">여자</div>
-    </div>
-    <div class="about-card">
-      <div class="label">생년월일</div>
-      <div class="value">2005. 04. 23</div>
-    </div>
-    <div class="about-card">
-      <div class="label">소속</div>
-      <div class="value">경북대학교 컴퓨터학부</div>
-    </div>
-    <div class="about-card">
-      <div class="label">MBTI</div>
-      <div class="value">INFP 🌿</div>
-    </div>
+  <div class="card-grid">
+    <div class="info-card"><div class="label">이름</div><div class="value">정채희</div></div>
+    <div class="info-card"><div class="label">성별</div><div class="value">여자</div></div>
+    <div class="info-card"><div class="label">생년월일</div><div class="value">2005. 04. 23</div></div>
+    <div class="info-card"><div class="label">소속</div><div class="value">경북대학교 컴퓨터학부</div></div>
+    <div class="info-card"><div class="label">전공</div><div class="value">글로벌SW융합전공</div></div>
+    <div class="info-card"><div class="label">MBTI</div><div class="value">ENFJ 🌿</div></div>
   </div>
 </section>
 
@@ -414,26 +427,10 @@
   <p class="section-label">Interests</p>
   <h2 class="section-title">취미</h2>
   <div class="hobby-grid">
-    <div class="hobby-card">
-      <div class="icon">🎹</div>
-      <div class="name">피아노</div>
-    </div>
-    <div class="hobby-card">
-      <div class="icon">☕</div>
-      <div class="name">카페 가기</div>
-    </div>
-    <div class="hobby-card">
-      <div class="icon">📺</div>
-      <div class="name">유튜브 보기</div>
-    </div>
-    <div class="hobby-card">
-      <div class="icon">🎥</div>
-      <div class="name">브이로그 보기</div>
-    </div>
-    <div class="hobby-card">
-      <div class="icon">📷</div>
-      <div class="name">사진 찍기</div>
-    </div>
+    <div class="hobby-card"><div class="icon">🎹</div><div class="name">피아노</div></div>
+    <div class="hobby-card"><div class="icon">☕</div><div class="name">카페 가기</div></div>
+    <div class="hobby-card"><div class="icon">🦜</div><div class="name">듀오링고</div></div>
+    <div class="hobby-card"><div class="icon">📷</div><div class="name">사진 찍기</div></div>
   </div>
 </section>
 
@@ -443,7 +440,7 @@
 <section class="section" id="food">
   <p class="section-label">Taste</p>
   <h2 class="section-title">음식 취향</h2>
-  <div class="food-section">
+  <div class="food-col">
     <div>
       <p class="food-group-label">💗 좋아요</p>
       <div class="tags">
@@ -454,13 +451,23 @@
         <span class="tag">🍵 말차</span>
         <span class="tag">🦞 해산물</span>
         <span class="tag">🥩 고기</span>
+        <span class="tag">🍤 새우</span>
+        <span class="tag">🍝 파스타</span>
+        <span class="tag">🍜 쌀국수</span>
+        <span class="tag">🍛 카레</span>
+        <span class="tag">🍲 짬뽕</span>
+        <span class="tag">🍳 오므라이스</span>
+        <span class="tag">☕ 아인슈페너</span>
+        <span class="tag">🍷 와인</span>
+        <span class="tag">🥃 하이볼</span>
+        <span class="tag">🥩 육회덮밥</span>
+        <span class="tag">🍜 밀면</span>
       </div>
     </div>
     <div>
       <p class="food-group-label">🙅 싫어요</p>
       <div class="tags">
         <span class="tag dislike">🍟 튀김</span>
-        <span class="tag dislike">🍔 햄버거</span>
       </div>
     </div>
   </div>
@@ -468,10 +475,105 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT / SNS -->
+<!-- ACTIVITIES -->
+<section class="section" id="activities">
+  <p class="section-label">Activities</p>
+  <h2 class="section-title">자격증 · 봉사 · 수상 · 동아리</h2>
+
+  <!-- 자격증/수료증 -->
+  <p style="font-size:0.8rem;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">🏅 자격증 / 수료증</p>
+  <div class="list-stack" style="margin-bottom:32px;">
+    <div class="list-card">
+      <div class="lc-icon">📜</div>
+      <div class="lc-body">
+        <div class="lc-title">COS Pro C 1급</div>
+      </div>
+    </div>
+    <div class="list-card">
+      <div class="lc-icon">📜</div>
+      <div class="lc-body">
+        <div class="lc-title">COS Pro C++ 1급</div>
+      </div>
+    </div>
+    <div class="list-card">
+      <div class="lc-icon">🎓</div>
+      <div class="lc-body">
+        <div class="lc-title">Groom Univ 3기</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 봉사 활동 -->
+  <p style="font-size:0.8rem;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">🤝 봉사 활동</p>
+  <div class="list-stack" style="margin-bottom:32px;">
+    <div class="list-card">
+      <div class="lc-icon">🌏</div>
+      <div class="lc-body">
+        <div class="lc-title">NIA (National Information Society Agency)</div>
+        <div class="lc-sub">Politeknik Negeri Bali Volunteer &nbsp;|&nbsp; 2025.07 – 2025.08</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수상 경력 -->
+  <p style="font-size:0.8rem;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">🏆 수상 경력</p>
+  <div class="list-stack" style="margin-bottom:32px;">
+    <div class="list-card">
+      <div class="lc-icon">🥇</div>
+      <div class="lc-body">
+        <div class="lc-title">2025 AI-conic 해커톤 대상</div>
+        <div class="lc-sub">AI 기반 집중/쉬는시간 추천 포모도로 타이머 웹 개발</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 동아리 -->
+  <p style="font-size:0.8rem;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;">🎯 참여 동아리</p>
+  <div class="list-stack">
+    <div class="list-card">
+      <div class="lc-icon">💡</div>
+      <div class="lc-body">
+        <div class="lc-title">LIT (2026~)</div>
+        <div class="lc-sub">컴퓨터학부 전공 동아리 설립 회장</div>
+      </div>
+    </div>
+    <div class="list-card">
+      <div class="lc-icon">🎸</div>
+      <div class="lc-body">
+        <div class="lc-title">산사랑 (2024)</div>
+        <div class="lc-sub">컴퓨터학부 밴드 동아리</div>
+      </div>
+    </div>
+    <div class="list-card">
+      <div class="lc-icon">🤲</div>
+      <div class="lc-body">
+        <div class="lc-title">L&C (2025~)</div>
+        <div class="lc-sub">컴퓨터학부 봉사 동아리</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
 <section class="section" id="contact">
   <p class="section-label">Contact</p>
-  <h2 class="section-title">SNS</h2>
+  <h2 class="section-title">연락처 &amp; SNS</h2>
+
+  <!-- 직접 연락처 -->
+  <div class="contact-grid">
+    <div class="contact-item">
+      <div class="label">📞 전화번호</div>
+      <div class="value">010-3016-1351</div>
+    </div>
+    <div class="contact-item">
+      <div class="label">✉️ 이메일</div>
+      <div class="value">jongchhe@naver.com</div>
+    </div>
+  </div>
+
+  <!-- SNS -->
   <div class="sns-grid">
     <a class="sns-card" href="https://www.instagram.com/j._.cogml/" target="_blank" rel="noopener">
       <div class="sns-icon ig">📸</div>
@@ -497,8 +599,15 @@
     <a class="sns-card" href="https://blog.naver.com/chaeh_22" target="_blank" rel="noopener">
       <div class="sns-icon blog">📝</div>
       <div>
-        <div class="sns-name">브이로그</div>
+        <div class="sns-name">블로그</div>
         <div class="sns-handle">chaeh_22 (네이버 블로그)</div>
+      </div>
+    </a>
+    <a class="sns-card" href="https://github.com/identihee" target="_blank" rel="noopener">
+      <div class="sns-icon gh">🐱</div>
+      <div>
+        <div class="sns-name">GitHub</div>
+        <div class="sns-handle">identihee</div>
       </div>
     </a>
   </div>
